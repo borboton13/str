@@ -1,0 +1,13 @@
+{"total":28,"rows":[
+	{"orden":"1","sector":"1","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"2","sector":"2","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"3","sector":"3","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"4","sector":"1","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"5","sector":"2","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"6","sector":"3","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"7","sector":"1","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"8","sector":"2","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""},
+	{"orden":"9","sector":"3","localcellid":"","bandamhz":"","modelorbs":"","tipoantena":"","marcaantena":"","modeloantena":"","azimuth":"","tiltmecanico":"","tiltelectrico":"","anguloapertura":"","alturaantena":"","tieneret":"","modelorru":""}
+
+
+]}

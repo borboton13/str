@@ -1,0 +1,16 @@
+{"total":28,"rows":[
+	{"idverificacionfisica":"1","nombreverificacionfisica":"Verificar la instalacion de gabinetes","revisado":"","observaciones":"","orden":"1"},
+	{"idverificacionfisica":"2","nombreverificacionfisica":"Verificar la instalacion de BBU y Tarjetas","revisado":"","observaciones":"","orden":"2"},
+	{"idverificacionfisica":"3","nombreverificacionfisica":"Verificar la limpieza fuera y dentro de gabinetes","revisado":"","observaciones":"","orden":"3"},
+	{"idverificacionfisica":"4","nombreverificacionfisica":"Verificar ajuste en conexiones de aterramiento de gabinetes","revisado":"","observaciones":"","orden":"4"},
+	{"idverificacionfisica":"5","nombreverificacionfisica":"Verificar que los cables de energia y aterramiento no esten danados o rotos ","revisado":"","observaciones":"","orden":"5"},
+	{"idverificacionfisica":"5","nombreverificacionfisica":"Verificar etiquetado en gabinetes","revisado":"","observaciones":"","orden":"6"},
+	{"idverificacionfisica":"6","nombreverificacionfisica":"Verificar la instalacion de las RRUs","revisado":"","observaciones":"","orden":"7"},
+	{"idverificacionfisica":"7","nombreverificacionfisica":"Verificar ajuste en conexiones de aterramiento de RRUs","revisado":"","observaciones":"","orden":"8"},
+	{"idverificacionfisica":"8","nombreverificacionfisica":"Verificar que cables de energia y aterramiento de RRUs no esten danados o rotos","revisado":"","observaciones":"","orden":"9"},	
+	{"idverificacionfisica":"10","nombreverificacionfisica":"Verificar vulcanizado y sella de conectores","revisado":"","observaciones":"","orden":"10"},
+	{"idverificacionfisica":"11","nombreverificacionfisica":"Verificar etiquetado en Antenas y RRUs","revisado":"","observaciones":"","orden":"11"},
+	{"idverificacionfisica":"12","nombreverificacionfisica":"Verificar la instalacion de las antenas","revisado":"","observaciones":"","orden":"12"},
+	{"idverificacionfisica":"13","nombreverificacionfisica":"Verificar Jumpers","revisado":"","observaciones":"","orden":"13"}
+
+]}

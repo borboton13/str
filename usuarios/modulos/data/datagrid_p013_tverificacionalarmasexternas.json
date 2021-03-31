@@ -1,0 +1,16 @@
+{"total":28,"rows":[
+	{"idevento":"","idverificaralarmaexterna":"1","nombreverificaralarmaexterna":"Puerta Abierta","estado":"","observaciones":"","orden":"1"},
+	{"idevento":"","idverificaralarmaexterna":"2","nombreverificaralarmaexterna":"Baterias en descarga","estado":"","observaciones":"","orden":"2"},
+	{"idevento":"","idverificaralarmaexterna":"3","nombreverificaralarmaexterna":"Corte de energia comercial","estado":"","observaciones":"","orden":"3"},
+	{"idevento":"","idverificaralarmaexterna":"4","nombreverificaralarmaexterna":"Inundacion","estado":"","observaciones":"","orden":"4"},
+	{"idevento":"","idverificaralarmaexterna":"5","nombreverificaralarmaexterna":"Falla de proteccion de transcientes","estado":"","observaciones":"","orden":"5"},
+	{"idevento":"","idverificaralarmaexterna":"6","nombreverificaralarmaexterna":"Alarma de rectificador","estado":"","observaciones":"","orden":"6"},
+	{"idevento":"","idverificaralarmaexterna":"7","nombreverificaralarmaexterna":"Humo","estado":"","observaciones":"","orden":"7"},
+	{"idevento":"","idverificaralarmaexterna":"8","nombreverificaralarmaexterna":"Falla de baliza","estado":"","observaciones":"","orden":"8"},
+	{"idevento":"","idverificaralarmaexterna":"9","nombreverificaralarmaexterna":"GG. Warning","estado":"","observaciones":"","orden":"9"},		
+	{"idevento":"","idverificaralarmaexterna":"10","nombreverificaralarmaexterna":"GG. Apagado","estado":"","observaciones":"","orden":"10"},		
+	{"idevento":"","idverificaralarmaexterna":"11","nombreverificaralarmaexterna":"Bajo nivel de combustible","estado":"","observaciones":"","orden":"11"},		
+	{"idevento":"","idverificaralarmaexterna":"12","nombreverificaralarmaexterna":"GG. Encendido","estado":"","observaciones":"","orden":"12"}	
+		
+
+]}
