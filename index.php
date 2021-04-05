@@ -14,7 +14,7 @@ $sw = isset($_GET['sw']) ? $_GET['sw'] : 0;
 <LINK href="favicon.ico" type=image/x-icon rel="shortcut icon">
 <!-- <META http-equiv=Content-Type content="text/html; charset=utf-8"> -->
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
-<META content="Sistema de Seguimiento Tecnico Dimesat" name=description>
+<META content="Sistema de Seguimiento Tecnico" name=description>
 <META content="Seguimiento Tecnico, Dimesat" name=keywords>
 <style type="text/css">
     *{

@@ -6,7 +6,7 @@ require("../funciones/verificar_sesion.php");
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
 <HEAD>
-<TITLE>Sistema de Seguimiento Tecnico Dimesat</TITLE>
+<TITLE>Sistema de Seguimiento Tecnico</TITLE>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <SCRIPT src="../../js/general.js" type=text/javascript></SCRIPT>

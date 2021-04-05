@@ -36,7 +36,7 @@ border=0 align=center cellpadding="0" cellspacing="0">
           <TD vAlign=top>         
             <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="40" colspan="3" bgcolor="#B2D563"><font size="4">&nbsp;&nbsp;&nbsp;<strong><font color="#3A3A3A" size="3">CUENTA DE ACCESO AL SISTEMA DE SEGUIMIENTO TECNICO DIMESAT </font></strong></font></td>
+                <td height="40" colspan="3" bgcolor="#B2D563"><font size="4">&nbsp;&nbsp;&nbsp;<strong><font color="#3A3A3A" size="3">CUENTA DE ACCESO AL SISTEMA DE SEGUIMIENTO TECNICO </font></strong></font></td>
 			    </tr>
               <tr>
                 <td width="4%">&nbsp;</td>

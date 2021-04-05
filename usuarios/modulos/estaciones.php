@@ -19,7 +19,7 @@ require("../funciones/verificar_sesion.php");
 //require("../../funciones/encabezado.php");
 //require("../funciones/menu.php");
 require("../funciones/menu3.php");
-$modulo="clientes";
+$modulo="estaciones";
 $link_modulo=$modulo.".php";
 $link_modulo_r=$modulo."_r.php";
 ?>
@@ -27,7 +27,7 @@ $link_modulo_r=$modulo."_r.php";
 <?php
 if (isset($_REQUEST['path'])){
 $path=$_REQUEST['path'];
-include("../../modulos/clientes/".$path);
+include("../../modulos/estaciones/".$path);
 }
 ?>
 </div></div></div>

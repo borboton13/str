@@ -250,9 +250,9 @@ if($buscar!=NULL)
 switch($campo)
 {
 case 'razon_social':
-$cliente=eregi_replace ($buscar,"<span class='marcar'>".$buscar."</span>",$row['razon_social']); break;
+$cliente=preg_replace ($buscar,"<span class='marcar'>".$buscar."</span>",$row['razon_social']); break;
 case 'caracteristicas':
-$row['caracteristicas']=eregi_replace ($buscar,"<span class='marcar'>".$buscar."</span>",$row['caracteristicas']); break;
+$row['caracteristicas']=preg_replace ($buscar,"<span class='marcar'>".$buscar."</span>",$row['caracteristicas']); break;
 }
 	 
 	 if($i%2==0)

@@ -326,8 +326,8 @@
         <th width="6%">F. INICIO </th>
         <th width="6%">F. SOLUCION </th>
         <th width="20%">ESTACION</th>
-        <th width="20%">PROD/SERV</th>
-        <th width="24%">DETALLES</th>
+        <th width="30%">DETALLES</th>
+        <th width="14%">PROD/SERV</th>
         <!--<th width="9%">FUNCIONARIO</th>-->
         <!--<th width="6%">PERSONAL</th>-->
         <!--<th width="8%">TICKET</th>-->
@@ -494,11 +494,11 @@
             </td>
             <!--<td><?=$row['departamento']?></td>-->
 
-            <td>
-                <div align="center"><?=$row['producto']?></div>
-            </td>
 
             <td><?=$row['caracteristicas']?></td>
+
+            <td><div align="center"><?=$row['producto']?></div></td>
+
             <!--<td><?/*=$row['funcionario']*/?></td>-->
             <!--<td><?=$row['personal']?></td>-->
             <!--<td><?/*=$row['nro_ticket']*/?></td>-->

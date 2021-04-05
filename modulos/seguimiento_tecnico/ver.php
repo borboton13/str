@@ -29,7 +29,7 @@ if (isset($_GET['pagina'])){
     <td colspan="5" class="paginado">
         <? if($admin){ ?>
         <div align="right">
-            <input class="btn_dark" onClick="location.href='#'" type="button" value="Estaciones">
+            <a class="enlaceboton" href="<?=$link_modulo?>?path=ver_estaciones.php">ESTACIONES</a>
             <input class="btn_dark" onClick="location.href='<?=$mst?>nuevo.php'" type="button" value="Nuevo">
         </div>
         <? } ?>
@@ -60,14 +60,11 @@ if (isset($_GET['pagina'])){
 	 $fecha_registro=$dato[6];
 ///////////
 	 $i++;
-	 if($i%2==0)
-	{
-	$rowt="#f6f7f8";
-	}
-	else
-	{
-	$rowt="#f1f1f1";
-	}
+	 if($i%2==0){
+	    $rowt="#f6f7f8";
+	 }else{
+	    $rowt="#f1f1f1";
+     }
 	echo"<tr height='25' bgcolor='$rowt' onmouseover=\"setPointer(this, '#DADADA')\" onmouseout=\"setPointer(this, '$rowt')\"> 
             <td valign='top'><DIV ALIGN='CENTER' class='smallmed'>$id_st_proyecto</DIV></td>
             <td valign='top'>$razon_social</td>			          
