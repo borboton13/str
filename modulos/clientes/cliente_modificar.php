@@ -1,4 +1,4 @@
-<?
+<?php
 if (isset($_GET['id'])){
 $id = base64_decode($_GET['id']);
 }
@@ -12,16 +12,16 @@ else { exit; }
 <form name="amper" method="post" action="clientes_r.php" onSubmit=" return VerifyOne ();">
 <input type="hidden" name="path" value="rm_cliente.php" />
 <input type="hidden" name="id" value="<?=$id?>" />
-<? 
+<?php
 $consulta="SELECT c.razon_social, c.caracteristicas, c.nit, c.tcliente, c.area, c.direccion, c.pais, c.ciudad, c.nivel_cliente, CONCAT(u.nombre,' ',u.ap_pat) AS creador, c.fecha_crea
 FROM clientes c, usuarios u
 WHERE u.id=c.creador AND
 c.id='".$id."'";
-$resultado=mysql_query($consulta);
-$filas=mysql_num_rows($resultado);
+$resultado=mysqli_query($conexion, $consulta);
+$filas=mysqli_num_rows($resultado);
 if($filas!=0)
 {
-$dato=mysql_fetch_array($resultado);
+$dato=mysqli_fetch_array($resultado);
 $rs = $dato[0];
 $caracteristicas = $dato[1];
 $nit = $dato[2];
@@ -51,11 +51,15 @@ MODIFICAR&nbsp;DATOS CLIENTE
 <th width="36%" height="20" ><span class="title4">*</span>Nivel del Cliente :</th>
 <td height="20">
 <select name="nivelc" class="buscar" style="WIDTH: 277px;">
-<?
-$resultado=mysql_query("SELECT sub_grupo FROM parametrica WHERE grupo='nivel_estrellas' ORDER BY sub_grupo"); 
-while($dato=mysql_fetch_array($resultado))
-if($nivelc==substr($dato['sub_grupo'],0,1)) echo "<option class='title7' selected>".$dato['sub_grupo']."</option>";
-else echo "<option>".$dato['sub_grupo']."</option>";
+<?php
+$resultado=mysqli_query($conexion, "SELECT sub_grupo FROM parametrica WHERE grupo='nivel_estrellas' ORDER BY sub_grupo");
+while($dato=mysqli_fetch_array($resultado)){
+    $nivel = substr($dato['sub_grupo'],0,1);
+    if($nivelc==$nivel)
+        echo "<option class='title7' value='$nivelc' selected>".$dato['sub_grupo']."</option>";
+    else
+        echo "<option value='$nivel'>".$dato['sub_grupo']."</option>";
+}
 ?>
 </select></td>
 </tr>
@@ -63,9 +67,9 @@ else echo "<option>".$dato['sub_grupo']."</option>";
 <th width="36%" height="20" ><span class="title4">*</span>Tipo de Cliente :</th>
 <td height="20">
 <select name="tipoc" class="buscar" style="WIDTH: 277px;">
-<?
-$resultado=mysql_query("SELECT sub_grupo FROM parametrica WHERE grupo='tipo_cliente' ORDER BY sub_grupo"); 
-while($dato=mysql_fetch_array($resultado))
+<?php
+$resultado=mysqli_query($conexion, "SELECT sub_grupo FROM parametrica WHERE grupo='tipo_cliente' ORDER BY sub_grupo"); 
+while($dato=mysqli_fetch_array($resultado))
 if($tipoc==$dato['sub_grupo']) echo "<option class='title7' selected>".$dato['sub_grupo']."</option>";
 else echo "<option>".$dato['sub_grupo']."</option>";
 ?>
@@ -75,9 +79,9 @@ else echo "<option>".$dato['sub_grupo']."</option>";
 <th width="36%" height="20" ><span class="title4">*</span>Area:</th>
 <td height="20">
 <select name="area" class="buscar" style="WIDTH: 277px;">
-<?
-$resultado=mysql_query("SELECT sub_grupo FROM parametrica WHERE grupo='categoria' ORDER BY sub_grupo"); 
-while($dato=mysql_fetch_array($resultado))
+<?php
+$resultado=mysqli_query($conexion, "SELECT sub_grupo FROM parametrica WHERE grupo='categoria' ORDER BY sub_grupo"); 
+while($dato=mysqli_fetch_array($resultado))
 if($area==$dato['sub_grupo']) echo "<option class='title7' selected>".$dato['sub_grupo']."</option>";
 else echo "<option>".$dato['sub_grupo']."</option>";
 ?>
@@ -127,7 +131,7 @@ function VerifyOne () {
 		)
 		{		
 										    
-					if(confirm("Las datos Son válidos!\n Acepte para Modificar los Datos"))
+					if(confirm("Las datos Son vï¿½lidos!\n Acepte para Modificar los Datos"))
 					{return true;}
 					else {return false;}																		
     }

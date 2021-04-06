@@ -1,0 +1,33 @@
+delete from `formulario_mtto_n`;
+delete from `formulario_mtto_n_p007`;
+delete from `formulario_mtto_n002`;
+delete from `formulario_p001`;
+delete from `formulario_p001ss`;
+delete from `formulario_p001v`;
+delete from `formulario_p002`;
+delete from `formulario_p002v`;
+delete from `formulario_p003`;
+delete from `formulario_p004`;
+delete from `formulario_p005`;
+delete from `formulario_p006`;
+delete from `formulario_p007`;
+delete from `formulario_p007_copy`;
+delete from `formulario_p008`;
+delete from `formulario_p009`;
+delete from `formulario_p010`;
+delete from `formulario_p011`;
+delete from `formulario_p012`;
+delete from `formulario_p013`;
+delete from `formulario_p013n`;
+delete from `formulario_p013v`;
+delete from `formulario_p014`;
+delete from `formulario_p015`;
+delete from `formulario_p016`;
+delete from `formulario_p017`;
+delete from `formulario_p018`;
+delete from `formulario_ps002`;
+delete from `formulario_ps010`;
+delete from `formulario_ps012`;
+delete from `formularios_p010`;
+
+--

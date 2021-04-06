@@ -57,3 +57,39 @@ where id_st_proyecto in (
 'ST00111'
 );
 
+-- --
+delete from usuarios where id not in ('A42', 'A44');
+
+update parametrica p set p.`descripcion` = 'Tecnico' where p.`descripcion` = 'Técnico';
+
+delete from transaccion where idtransaccion not in (1);
+
+update cuenta c set c.`numero` = '10000033455177', c.`idbanco` = 2, c.`descripcion` = 'Caja Ahorros MN' where c.`idcuenta` = 1;
+update cuenta c set c.`numero` = '10000021119587', c.`idbanco` = 2, c.`descripcion` = 'Caja Ahorros P. Juridica MN' where c.`idcuenta` = 2;
+
+delete from st_cronograma_informes_f001;
+delete from st_trabajos;
+delete from estacion_nueva;
+
+delete from documento;
+delete from documentoacta;
+delete from evento;
+delete from st_ticket;
+delete from estacion;
+
+update secuencias s set s.`valor` = 'C00004' where s.`id_secuencia` = 'clientes';
+update secuencias s set s.`valor` = 'B01' where s.`id_secuencia` = 'usuarios';
+
+update secuencias s set s.`valor` = 'ST00003' where s.`id_secuencia` = 'seguimiento_tecnico';
+
+update parametrica p set p.`descripcion` = 0 where p.`sub_grupo` = '0 Estrellas';
+update parametrica p set p.`descripcion` = 1 where p.`sub_grupo` = '1 Estrellas';
+update parametrica p set p.`descripcion` = 2 where p.`sub_grupo` = '2 Estrellas';
+update parametrica p set p.`descripcion` = 3 where p.`sub_grupo` = '3 Estrellas';
+update parametrica p set p.`descripcion` = 4 where p.`sub_grupo` = '4 Estrellas';
+update parametrica p set p.`descripcion` = 5 where p.`sub_grupo` = '5 Estrellas';
+
+
+esta
+
+

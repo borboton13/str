@@ -35,7 +35,7 @@ onmouseout="tooltip.hide();"/></td>
 <th width="31%" ><span class="title4">*</span>Contrase&ntilde;a Inicial:</th>
 <td><input name="contrasena" type="text" class="Text_left" id="contrasena" size="15" maxlength="15"> 
   <span class="rojo">La contrase&ntilde;a sera Encriptada</span> <img src="../../img/ico_info_tooltip.gif" width="38" height="17" align="top" 
-onmouseover="tooltip.show('<strong>Contraseña:</strong><br />Esta contraseña se encriptara en la Base de Datos, el Usuario creado podra cambiar su contraseña cuando el requiera.');" 
+onmouseover="tooltip.show('<strong>ContraseÃ±a:</strong><br />Esta contraseÃ±a se encriptara en la Base de Datos, el Usuario creado podra cambiar su contraseÃ±a cuando el requiera.');"
 onmouseout="tooltip.hide();"/></td>
 </tr>
 <tr>
@@ -52,10 +52,11 @@ onmouseout="tooltip.hide();"/></td>
 <th width="31%" ><span class="title4">*</span>Nivel de Usuario:</th>
 <td><select name="nivel" class="selectbuscar" id="ingreso_por">
 <option value="0" selected class="title7"> Seleccionar... </option>
-<?
-$resultado=mysql_query("SELECT sub_grupo,descripcion FROM parametrica WHERE grupo='nivel_usuario'");
-while($dato=mysql_fetch_array($resultado))
-echo '<option value="'.$dato['sub_grupo'].'">'.$dato['descripcion'].'</option>';
+<?php
+    $resultado = mysqli_query($conexion, "SELECT sub_grupo, descripcion FROM parametrica WHERE grupo='nivel_usuario'");
+    while($dato = mysqli_fetch_array($resultado)) {
+        echo '<option value="' . $dato['sub_grupo'] . '">' . $dato['descripcion'] . '</option>';
+    }
 ?>
 </select><img src="../../img/ico_info_tooltip.gif" width="38" height="17" align="top" 
 onmouseover="tooltip.show('<strong>Nivel:</strong><br />El nivel de Usuario determinara los privilegios de funcionalidad en el sistema');" 
@@ -65,9 +66,9 @@ onmouseout="tooltip.hide();"/></td>
 <th width="31%" ><span class="title4">*</span>Ciudad de Trabajo:</th>
 <td><select name="sucursal" class="selectbuscar" id="ingreso_por">
 <option value="0" selected class="title7"> Seleccionar... </option>
-<?
-$resultado=mysql_query("SELECT sub_grupo,descripcion FROM parametrica WHERE grupo='depto'");
-while($dato=mysql_fetch_array($resultado))
+<?php
+$resultado=mysqli_query($conexion, "SELECT sub_grupo,descripcion FROM parametrica WHERE grupo='depto'");
+while($dato=mysqli_fetch_array($resultado))
 echo '<option value="'.$dato['sub_grupo'].'">'.$dato['descripcion'].'</option>';
 ?>
 </select><img src="../../img/ico_info_tooltip.gif" width="38" height="17" align="top" 
@@ -78,7 +79,7 @@ onmouseout="tooltip.hide();"/></td>
 <td colspan="2" class="marco"><img src="../../img/ico_info.gif" alt="ADICIONAR CLIENTE" vspace="0" border="0" align="absmiddle" /> <strong>DATOS SECUNDARIOS:</strong> estos datos pueden ser actualizados por el mismo usuario posteriormente. </td>
 </tr>
 <tr>
-<th width="31%" >Fecha Nacimiento :</th>
+<th width="31%" >Fecha Nacimiento:</th>
 <td><input name="fecha_nacimiento" type="text" class="Text_center" id="fecha_nacimiento" onBlur="valFecha(this)" size="12" maxlength="10"> 
   dd/mm/YYYY </td>
 </tr>
@@ -141,7 +142,7 @@ function VerifyOne () {
 		checkField( document.amper.telf_oficina, isPhoneNumber, true )
 		)
 		{		
-			if(confirm("Las datos Son válidos!\n Continuar el Registro con estos Datos?"))
+			if(confirm("Las datos Son validos!\n Continuar el Registro con estos Datos?"))
 			{return true;}
 			else {return false;}															
 		}		  
@@ -182,7 +183,7 @@ bOk = bOk && (valMes(oTxt));
 bOk = bOk && (valDia(oTxt));
 bOk = bOk && (valSep(oTxt));
 if (!bOk){
-alert("Fecha inválida");
+alert("Fecha invalida");
 oTxt.value = "";
 oTxt.focus();
 }

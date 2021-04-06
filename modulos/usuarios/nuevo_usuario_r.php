@@ -9,7 +9,11 @@ $cargo = $_POST["cargo"];
 $mail = $_POST["mail"];
 $nivel = $_POST["nivel"];
 $sucursal = $_POST["sucursal"];
-$fecha_nacimiento = convertfecha($_POST['fecha_nacimiento'],"/");
+
+$fecha_nacimiento = '0000-00-00';
+if ($_POST['fecha_nacimiento'] != '')
+	$fecha_nacimiento = convertfecha($_POST['fecha_nacimiento'],"/");
+
 $direccion = $_POST['direccion'];
 $mail2 = $_POST['mail2'];
 $skype = $_POST['skype'];
@@ -21,7 +25,7 @@ $interno = $_POST['interno'];
 
 //$dato=mysql_fetch_array(mysql_query("SELECT incrementar_nro(1,'usuarios')"));
 //$id=$dato[0];
-$id = incrementar_nro(3, 'usuarios');
+$id = incrementar_nro($conexion, 3, 'usuarios');
 
 $consulta="INSERT INTO usuarios SET 
 id='".$id."',
@@ -48,11 +52,15 @@ nro_ing=0,
 fecha_modificacion=NOW()
 ";
 
-$resultado=mysql_query($consulta);
+//echo "Consulta: " . $consulta;
+
+$resultado = mysqli_query($conexion, $consulta);
 
 if($resultado) {
 	header("Location: ".$link_modulo."?path=ver_usuarios.php");
-	}
-	else echo "<b>Ocurrio un error, revise bien la información insertada!</b><br>Notrifiue de este error al administrador del Sistema: ".mysql_error()."<br><a href='javascript:history.back(1);'>[RETORNAR]</a>";  		
+}
+else
+	echo "<b>Ocurrio un error, revise bien la informacion insertada!</b><br>Notrifiue de este error al administrador del Sistema: ".mysqli_error()."<br><a href='javascript:history.back(1);'>[RETORNAR]</a>";
+
 ?>
 

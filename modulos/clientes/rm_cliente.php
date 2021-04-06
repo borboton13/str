@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST['modificar_cliente'])) 
-{
-$dato=mysql_fetch_array(mysql_query("select ADDTIME(now(),ajuste) FROM ajuste_hora_server LIMIT 1"));
+if (isset($_POST['modificar_cliente'])) {
+
+$dato=mysqli_fetch_array(mysqli_query($conexion, "select now()"));
 $fecha=$dato[0];
 //datos cliente
 $id = $_POST["id"];
@@ -13,6 +13,7 @@ $nit = $_POST["nit"];
 $dir = $_POST["dir"];
 $pais = $_POST['pais'];
 $ciudad = $_POST['ciudad'];
+
 
 $consulta="UPDATE clientes SET
 caracteristicas='$caracteristicas',
@@ -27,9 +28,9 @@ resp_mod='$id_user',
 ult_fecha_mod='$fecha'
 WHERE id='$id'";
 
-	if(mysql_query($consulta))
+	if(mysqli_query($conexion, $consulta))
 	{
-		echo "<CENTER>CIERRE LA VENTANA PARA<BR>VISUALIZAR LOS CAMBIOS</CENTER>";
+		echo "<b>CIERRE LA VENTANA PARA<BR>VISUALIZAR LOS CAMBIOS</b>";
 	}
 	else echo"OCURRIO UN ERROR - intente nuevamente";
 
@@ -37,6 +38,7 @@ WHERE id='$id'";
 else 
 {
 header("Location: ../index.php");
+
 }
 ?>
 

@@ -33,7 +33,9 @@ if($nively=='3') $client = true; else $client = false;
     <h1>Sistema de Seguimiento Tecnico</h1>
 
     <a href="<?=$mst?>ver.php" class="btn">Proyectos</a>
-    <a href="<?=$mst?>cronograma_prev.php" class="btn">Mtto Preventivo</a>
+
+    <!--<a href="<?/*=$mst*/?>cronograma_prev.php" class="btn">Mtto Preventivo</a>-->
+    <a href="#" class="btn">Mtto Preventivo</a>
 
     <a href="<?=$mst?>tickets.php" class="btn">Tickets</a>
 

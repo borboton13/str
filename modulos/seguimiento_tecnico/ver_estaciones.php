@@ -32,7 +32,8 @@ $consulta = "select e.idestacion, e.codigo, e.nombre, c.nombre as centro, e.prov
 
                 if(!$rs->query($consulta)){
                     die( $rs->error() ); }
-                echo "Mostrando ".$rs->desde()." - ".$rs->hasta()." de un total de ".$rs->total()."<br>"; ?>
+                //echo "Mostrando ".$rs->desde()." - ".$rs->hasta()." de un total de ".$rs->total()."<br>";
+                ?>
             </div>
         </td>
         <td colspan="5" class="paginado">
@@ -88,7 +89,7 @@ $consulta = "select e.idestacion, e.codigo, e.nombre, c.nombre as centro, e.prov
     <tfoot>
     <tr>
         <td colspan="7" class="paginado">
-            <?php echo $rs->anterior()." - ".$rs->nroPaginas()." - ".$rs->siguiente(); ?>
+            <?php /*echo $rs->anterior()." - ".$rs->nroPaginas()." - ".$rs->siguiente();*/ ?>
         </td>
     </tr>
     </tfoot>
