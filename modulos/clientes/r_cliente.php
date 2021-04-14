@@ -5,7 +5,7 @@ if (isset($_POST['adicionar_cliente'])) {
 //datos cliente
 $rs = $_POST["rs"];
 
-echo "-------> " . $rs;
+//echo "-------> " . $rs;
 
 //$rs = ereg_replace( "([     ]+)", " ", trim($rs) );
 //$rs = trim($rs);
@@ -34,19 +34,20 @@ $cobs = $_POST['cobs'];
 $nro_ = incrementar_nro($conexion, 1, 'clientes');
 
 $filas=mysqli_num_rows(mysqli_query($conexion, "SELECT id FROM clientes WHERE razon_social='$rs';"));
-echo "-------> filas: " . $filas;
+//echo "-------> filas: " . $filas;
 
 if($filas==0) {
-    echo "-------> filas: " . $filas;
+    //echo "-------> filas: " . $filas;
     //inserta cliente
     $consulta="INSERT INTO clientes (id, razon_social, caracteristicas, nit, tcliente, area, direccion, pais, ciudad, nivel_cliente, creador, fecha_crea, resp_mod, ult_fecha_mod) VALUES ('$nro_', '$rs', '$caracteristicas', '$nit', '$tipoc', '$area', '$dir', '$pais', '$ciudad', '$nivelc', '$id_user', NOW(), '$id_user', NOW())";
-    echo "-------> consulta Cliente: " . $consulta;
+    //echo "-------> consulta Cliente: " . $consulta;
     $resultado=mysqli_query($conexion, $consulta);
 
     //inserta contacto
     $consulta = "INSERT INTO contactos (id_cliente, nombre, cargo, dpto, telf, celular, email, fax, obs, id_user, fecha_registro) VALUES ('$nro_', '$cnombre', '$ccargo', '$cdpto', '$ctelf', '$ccel', '$cmail', '$cfax', '$cobs', '$id_user', NOW())";
-    echo "<br />";
-    echo "-------> consulta Contacto: " . $consulta;
+
+    //echo "<br />";
+    //echo "-------> consulta Contacto: " . $consulta;
 
     $resultado=mysqli_query($conexion, $consulta);
 

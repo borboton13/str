@@ -48,7 +48,7 @@ $nro=$dato['id_st_proyecto'];
 	<table width="100%" class="table2" align="center">
       <tbody>
       <tr>
-          <td colspan="5" align="right">
+          <td colspan="6" align="right">
               <a href="<?=$link_modulo_r?>?path=trabajos_depositos_adicionar.php&id_item=<?=$id_item?>" class="enlaceboton">
                   <img src="../../img/adicionar.gif" alt="Adicionar" border="0" align="absmiddle" > Adicionar transaccion</a>
           </td>
@@ -58,7 +58,8 @@ $nro=$dato['id_st_proyecto'];
 		    <th width="45"><div align="center">Glosa</div></th>
             <th width="15%"><div align="center">Importe</div></th>
             <th width="5%"><div align="center">Mov</div></th>
-            <th width="15%"><div align="center">Trans</div></th>
+            <th width="12%"><div align="center">Trans</div></th>
+            <th width="8%"><div align="center">Accion</div></th>
         </tr>
         <?php
         if($filas!=0){
@@ -86,12 +87,17 @@ $nro=$dato['id_st_proyecto'];
             <td class="marco" align="right"><?=$importe?></td>
             <td class="marco" align="center"><?=$tipo?></td>
             <td class="marco" align="center"><?=$notrans;?></td>
+            <td class="marco" align="center">
+                <a href="<?=$link_modulo_r?>?path=trabajos_depositos_eliminar.php&id_item=<?=$id_item?>&id=<?=$id?>" class="enlaceboton">
+                    <img src="../../img/delete.png" alt="Eliminar" border="0" align="absmiddle"></a>
+            </td>
         </tr>
         <?php } ?>
 
         <tr>
             <td class="marco" align="right" colspan="2">Saldo:</td>
             <td class="marco" align="right"><?=number_format($saldo, 2, '.', ',')?></td>
+            <td class="marco" align="center"</td>
             <td class="marco" align="center"</td>
             <td class="marco" align="center"</td>
         </tr>
@@ -102,7 +108,7 @@ $nro=$dato['id_st_proyecto'];
 <?php if($adm){ ?>
         <tfoot>
         <tr>
-            <td colspan="5" align="right">
+            <td colspan="6" align="right">
                 <a href="<?=$link_modulo_r?>?path=trabajos_depositos_adicionar.php&id_item=<?=$id_item?>" class="enlaceboton">
                     <img src="../../img/adicionar.gif" alt="Adicionar" border="0" align="absmiddle" > Adicionar transaccion</a>
             </td>

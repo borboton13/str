@@ -1,10 +1,10 @@
-<?
+<?php
 require("../../funciones/motor.php");
 $id1 = $_GET['id1'];
 $id2 = $_GET['id2'];
 $sql="SELECT nombre,cargo,dpto,telf,celular,email,fax,obs,fecha_registro,id_user FROM contactos WHERE id=".$id1." AND id_cliente='".$id2."'";
-$resultado=mysql_query($sql);
-$dato=mysql_fetch_array($resultado);
+$resultado=mysqli_query($conexion, $sql);
+$dato=mysqli_fetch_array($resultado);
 $nombre=$dato[0];
 $cargo=utf8_encode($dato[1]);
 $dpto=utf8_encode($dato[2]);

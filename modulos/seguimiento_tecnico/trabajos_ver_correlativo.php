@@ -456,7 +456,7 @@
                     <?php
                     if($row['nro']<90){
                         echo "<a class=\"enlaceboton\" href='../../archivos_st/ST00028/201401/$nro_inf.pdf' onClick=\"openNewWindowhtml( this, '800', '590' );return false;\"><img src='../../img/imp.gif' alt='Ver Informe en PDF' border=\"0\"></a>";
-                        echo "<B class='negro'>$nro_inf</B>*";
+                        echo "<span class='negro'>$nro_inf</span>";
                     }else{
                         ?>
                         <?php echo"<a class=\"enlaceboton\" href='../../pdf/pdf_st_".$pro_key.".php?id_st_cronograma_informes=".base64_encode($id_st_cronograma_informes)."' onClick=\"openNewWindowhtml( this, '800', '590' );return false;\"><img src='../../img/imp.gif' alt='Ver Informe en PDF' border=\"0\"></a>";?>
@@ -557,7 +557,7 @@
     <tfoot>
     <tr>
         <td colspan="13" class="paginado"><?php
-            echo $rs->anterior()." --- ".$rs->nroPaginas()." - ".$rs->siguiente();
+            echo $rs->anterior()." - ".$rs->nroPaginas()." - ".$rs->siguiente();
             ?></td>
     </tr>
     </tfoot>
