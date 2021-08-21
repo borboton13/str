@@ -4,7 +4,7 @@
 //$conexion=mysql_connect("localhost","dimesatc_alpha","AgRh22UmLAxC");
 //$conexion = mysql_connect("localhost","root","mysql");
 
-$conexion = mysqli_connect("localhost", "root", "Mysql.1315", "sstcb");
+$conexion = mysqli_connect("localhost", "root", "Mysql.1315", "sst");
 
 if (!$conexion){
 

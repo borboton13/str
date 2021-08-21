@@ -20,8 +20,26 @@ if(isset($_POST["mas"])){
 $fecha=substr($fecha,0,10);
 
 $idcuenta = null;
-if(isset($_POST["cuenta"])){
-    $idcuenta = $_POST["cuenta"];
+
+$ingresos = 0.0;
+$egresos = 0.0;
+$cuentaDetalle = "";
+
+if(isset($_POST["idcuenta"])){
+    $idcuenta = $_POST["idcuenta"];
+
+    $res = mysqli_query($conexion, "SELECT SUM(IF(t.`tipo`= 'I', t.`importe`, 0)) AS ingresos, SUM(IF(t.`tipo`= 'E', t.`importe`, 0)) AS egresos
+                                    FROM transaccion t 
+                                    WHERE t.idcuenta = " . $idcuenta);
+    $data = mysqli_fetch_row($res);
+
+    $ingresos = $data[0];
+    $egresos = $data[1];
+
+    $res1 = mysqli_query($conexion, "SELECT c.`idcuenta`, c.`descripcion` FROM cuenta c  WHERE c.`idcuenta` = " . $idcuenta );
+    $data1 = mysqli_fetch_row($res1);
+    $cuentaDetalle = ' (' . $data1[1] . ')';
+
 }
 
 
@@ -31,17 +49,17 @@ if(isset($_POST["cuenta"])){
 <tr><TD colspan="9">
 <table>
 <!--<tr><td><a class="enlaceboton" href="../../excel/excel_st_listado_ticket.php" onclick="openNewWindowhtml( this, '800', '590' );return false;"><img src="../../img/excel_ico.gif" alt="Ver Listado en Excel" width="16" height="16" border="0" align="absmiddle" /> Ver Todo Listado en Excel </a></td></tr>-->
-<tr><td><a class="enlaceboton" href="#"><img src="../../img/excel_ico.gif" alt="Ver Listado en Excel" width="16" height="16" border="0" align="absmiddle" /> Exportar </a></td></tr>
+<!--<tr><td><a class="enlaceboton" href="#"><img src="../../img/excel_ico.gif" alt="Ver Listado en Excel" width="16" height="16" border="0" align="absmiddle" /> Exportar </a></td></tr>-->
 <tr>
 	<td class="marco">
 
-        <form name="form1" method="post" action="#">
+        <form name="form1" method="post" >
             <span class="title7">&nbsp;Seleccionar:&nbsp;</span>
             <!--<input class="btn_dark" name="menos" type="submit" value="&lt;" title="dia anterior">
             <input class="btn_dark" name="mas" type="submit"value="&gt;" title="dia siguiente">-->
             <!--<input name="fecha" type="text" onclick="displayCalendar(this,'yyyy-mm-dd',this)" id="fecha" value="<?/*=substr($fecha,0,10);*/?>">-->
 
-            <select name="cuenta" class="selectbuscar" id="cuenta">
+            <select name="idcuenta" class="selectbuscar" id="idcuenta">
                 <option value="0" selected class="title7">Elija una cuenta...</option>
                 <?php
                 $resultadox = mysqli_query($conexion, "select c.idcuenta, c.numero, c.moneda, b.codigo  
@@ -55,8 +73,15 @@ if(isset($_POST["cuenta"])){
 
             <input class="btn_dark" name="Submit" type="submit" value="Ver">
             <?php if($nively == 1){  ?>
-                <input class="btn_dark" onClick="location.href='#'" type="button" value="Nuevo">
+                <!--<input class="btn_dark" onClick="location.href='#'" type="button" value="Nuevo">-->
+                <input class="btn_dark" onClick="location.href='<?=$mst?>nuevo_transaccion.php'" type="button" value="Nuevo">
             <?php }  ?>
+
+            <span class="title7">&nbsp;Ingresos:&nbsp;</span> <?php echo number_format($ingresos, 2, '.', ','); ?>
+            <span class="title7">&nbsp;Egresos:&nbsp;</span> <?php echo number_format($egresos, 2, '.', ','); ?>
+            <span class="title7">&nbsp;Saldo:&nbsp;</span> <?php echo number_format($ingresos-$egresos, 2, '.', ','); ?>
+            <span class="title7"><?php echo $cuentaDetalle; ?></span>
+
         </form>
     </td>
 </tr>
@@ -68,8 +93,8 @@ if(isset($_POST["cuenta"])){
     <th width="40"><div align="center">Glosa</div></th>
     <th width="15%"><div align="center">Importe</div></th>
     <th width="5%"><div align="center">Mov</div></th>
-    <th width="10%"><div align="center">Trans</div></th>
-    <th width="15%"><div align="center">Producto</div></th>
+    <th width="5%"><div align="center">Trans</div></th>
+    <th width="20%"><div align="center">Producto</div></th>
 </tr>
 <?php
 
@@ -78,10 +103,12 @@ if(isset($_POST["cuenta"])){
 /*$consulta = "SELECT id_st_ticket,ticket,idnodo,estacion,fecha_inicio_rif,hora_inicio_rif,fecha_fin_rif,hora_fin_rif, fecha_not,hora_not, tipo,problema,fecha_not,hora_not,plan_accion,trabajo_realizado,personal,observaciones,idestacion " .
 		    "FROM st_ticket WHERE fecha_inicio_rif='$fecha'";*/
 
-$consulta = "select t.idtransaccion, t.tipo, date_format(t.fecha,'%d/%m/%Y') as fecha, t.importe, t.notrans, t.glosa, tr.producto 
+$consulta = "select t.idtransaccion, t.tipo, date_format(t.fecha,'%d/%m/%Y') as fecha, t.importe, t.notrans, t.glosa, tr.producto, p.declaracion_proyecto 
              from transaccion t 
              left join st_trabajos tr on t.id_item = tr.id_item 
-             where t.idcuenta = '".$idcuenta."'";
+             left join st_proyecto p  ON tr.id_st_proyecto = p.id_st_proyecto
+             where t.idcuenta = '".$idcuenta."'  
+             order by t.fecha";
 
 
 $resultado = mysqli_query($conexion, $consulta);
@@ -90,6 +117,8 @@ $filas	   = mysqli_num_rows($resultado);
 if($filas!=0){ 
 	$i=0;
     $saldo = 0.0;
+    $ingresos = 0.0;
+    $egresos = 0.0;
     while($dato=mysqli_fetch_array($resultado)){
         $id      = $dato['idtransaccion'];
         $fecha   = $dato['fecha'];
@@ -98,10 +127,13 @@ if($filas!=0){
         $glosa   = $dato['glosa'];
         $tipo    = $dato['tipo'];
         $producto = $dato['producto'];
+        $proyecto = $dato['declaracion_proyecto'];
 
         if ($tipo == 'I'){
-            $saldo = $saldo + $importe;
+            $ingresos = $ingresos + $importe;
+            $saldo    = $saldo    + $importe;
         }else {
+            $egresos  = $egresos + $importe;
             $saldo = $saldo - $importe;
         }
 
@@ -115,7 +147,7 @@ if($filas!=0){
             <td class="marco" align="right"><?=$importe?></td>
             <td class="marco" align="center"><?=$tipo?></td>
             <td class="marco" align="center"><?=$notrans;?></td>
-            <td class="marco" align="center"><?=$producto;?></td>
+            <td class="marco" align="center"><?=$proyecto;?></td>
         </tr>
     <?php } ?>
 
