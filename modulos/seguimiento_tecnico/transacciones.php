@@ -49,9 +49,10 @@ if(isset($_POST["idcuenta"])){
 <tr><TD colspan="9">
 <table>
 <!--<tr><td><a class="enlaceboton" href="../../excel/excel_st_listado_ticket.php" onclick="openNewWindowhtml( this, '800', '590' );return false;"><img src="../../img/excel_ico.gif" alt="Ver Listado en Excel" width="16" height="16" border="0" align="absmiddle" /> Ver Todo Listado en Excel </a></td></tr>-->
-<!--<tr><td><a class="enlaceboton" href="#"><img src="../../img/excel_ico.gif" alt="Ver Listado en Excel" width="16" height="16" border="0" align="absmiddle" /> Exportar </a></td></tr>-->
+<tr><td><a class="enlaceboton" href="<?=$link_modulo?>?path=reporte_trans1.php">REPORTE-A</a></td></tr>
 <tr>
 	<td class="marco">
+
 
         <form name="form1" method="post" >
             <span class="title7">&nbsp;Seleccionar:&nbsp;</span>
