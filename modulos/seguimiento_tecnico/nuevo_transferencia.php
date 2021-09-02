@@ -6,7 +6,7 @@
 <form name="amper" method="post" action="<?=$link_modulo_r?>" onSubmit=" return VerifyOne();">
     <input type="hidden" name="path" value="nuevo_transferencia_r.php" />
     <table width="70%" align="center" class="table2">
-        <caption>Inserte Nueva Transaccion</caption>
+        <caption>Nueva Transferencia</caption>
         <tr>
             <th colspan="2"><strong class="verde">Transaccion:</strong></th>
         </tr>
