@@ -7,7 +7,7 @@ $sw = isset($_GET['sw']) ? $_GET['sw'] : 0;
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <head>
-<TITLE>Dimesat: Sistema de seguimiento T&eacute;cnico</TITLE>
+<TITLE>Sistema de seguimiento T&eacute;cnico</TITLE>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <LINK rev=stylesheet href="css/general.css" type=text/css rel=stylesheet>

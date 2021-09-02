@@ -6,7 +6,7 @@ require_once("path.php");
 <head>
 <meta http-equiv="Content-language" content="es" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="The Official Dimesat Site to research" />
+<meta name="description" content="The Official Site to research" />
 <meta name="keywords" content="Dimesat, project, projects, Santa Cruz, data, satelite, transceivers, epp, comunication, telecomunication, bolivia, vsat, gilat, wimax, idirect, gsm, technology, cellphone, conexion, comunicaciones" />
 <meta name="author" content="DIMESAT" />
 <title>DIMESAT S.R.L.</title>

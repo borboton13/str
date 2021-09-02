@@ -27,12 +27,13 @@ WHERE t.idcuenta = 2
 ORDER BY t.fecha
 ;
 
-SELECT p.declaracion_proyecto, tr.`caracteristicas`, i.`id_usuario`, SUM(IF(t.`tipo`= 'I', t.`importe`, 0)) AS ingresos, SUM(IF(t.`tipo`= 'E', t.`importe`, 0)) AS egresos
+SELECT p.declaracion_proyecto, /*tr.`caracteristicas`,*/ i.`id_usuario`, CONCAT(u.nombre, ' ', u.ap_pat) AS cuadrilla , SUM(IF(t.`tipo`= 'I', t.`importe`, 0)) AS ingresos, SUM(IF(t.`tipo`= 'E', t.`importe`, 0)) AS egresos
 FROM transaccion t 
 LEFT JOIN st_trabajos tr ON t.id_item = tr.id_item 
 LEFT JOIN st_proyecto p  ON tr.id_st_proyecto = p.id_st_proyecto
 LEFT JOIN st_cronograma_informes_f002 i ON tr.`id_item` = i.`id_item`
+LEFT JOIN usuarios u ON i.`id_usuario` = u.id
 WHERE t.idcuenta = 2
-GROUP BY p.declaracion_proyecto, tr.`caracteristicas`, i.`id_usuario`
+GROUP BY p.declaracion_proyecto, i.`id_usuario`
 ;
 

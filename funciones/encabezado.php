@@ -6,7 +6,7 @@
 <div id="top-bar">
     <div class="content clearfix">
         <!--<span class="all-left"><a href="#">&rarr; DIMESAT S.R.L.</a></span>-->
-        <span class="all-left"><label>&rarr; Sistema de Seguimiento Tecnico - DIMESAT S.R.L.</label></span>
+        <span class="all-left"><label>&rarr; Sistema de Seguimiento Tecnico</label></span>
         <span class="back-to-tutorial"><label><? echo"$nombrec"; ?> &larr;</label></span>
     </div>
 </div>
