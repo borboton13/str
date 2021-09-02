@@ -1,9 +1,10 @@
 <?php
     if($nively=='1'){ $adm=1;}
 ?>
+
 <br />
 <form name="amper" method="post" action="<?=$link_modulo_r?>" onSubmit=" return VerifyOne();">
-    <input type="hidden" name="path" value="nuevo_transaccion_r.php" />
+    <input type="hidden" name="path" value="nuevo_transferencia_r.php" />
     <table width="70%" align="center" class="table2">
         <caption>Inserte Nueva Transaccion</caption>
         <tr>
@@ -17,28 +18,7 @@
         </tr>
 
         <tr>
-            <th width="30%"><span class="rojo">*</span>Importe:</th>
-            <td width="70%"><input name="importe" type=text class="Text_left" id="importe" size="15" maxlength="250" autocomplete="off"></td>
-        </tr>
-
-        <tr>
-            <th width="30%"><span class="rojo">*</span>Tipo Movimiento:</th>
-            <td width="70%">
-                <select name="tipo" class="selectbuscar" id="tipo">
-                    <option value="0" selected class="title7">Elija el movimiento...</option>
-                    <option value="I" class="title7">INGRESO (I)</option>
-                    <option value="E" class="title7">EGRESO (E)</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <th width="30%"><span class="rojo">*</span>Glosa:</th>
-            <td width="70%"><input name="glosa" type=text class="Text_left" id="glosa" size="50" maxlength="250" autocomplete="off"></td>
-        </tr>
-
-        <tr>
-            <th width="30%"><span class="rojo">*</span>Cuenta:</th>
+            <th width="30%"><span class="rojo">*</span>Cuenta origen:</th>
             <td width="70%">
                 <select name="cuenta" class="selectbuscar" id="cuenta">
                     <option value="0" selected class="title7">Elija una cuenta...</option>
@@ -60,6 +40,44 @@
                     ?>
                 </select>
             </td>
+        </tr>
+
+        <tr>
+            <th width="30%"><span class="rojo">*</span>Cuenta destino:</th>
+            <td width="70%">
+                <select name="cuentaDest" class="selectbuscar" id="cuentaDest">
+                    <option value="0" selected class="title7">Elija una cuenta...</option>
+                    <?php
+                    $resultadox = mysqli_query($conexion, "select c.idcuenta, c.numero, c.moneda, c.descripcion, b.codigo  
+                                                           from cuenta c
+                                                           join banco b on c.idbanco = b.idbanco");
+                    while($datox = mysqli_fetch_array($resultadox)){
+                        echo'<option value="'.$datox['idcuenta'].'">'.$datox['numero']. ' '.' ('.$datox['descripcion'].')'.'</option>';
+                    }
+                    ?>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <th width="30%"><span class="rojo">*</span>Importe:</th>
+            <td width="70%"><input name="importe" type=text class="Text_left" id="importe" size="15" maxlength="250" autocomplete="off"></td>
+        </tr>
+
+        <!--<tr>
+            <th width="30%"><span class="rojo">*</span>Tipo Movimiento:</th>
+            <td width="70%">
+                <select name="tipo" class="selectbuscar" id="tipo">
+                    <option value="0" selected class="title7">Elija el movimiento...</option>
+                    <option value="I" class="title7">INGRESO (I)</option>
+                    <option value="E" class="title7">EGRESO (E)</option>
+                </select>
+            </td>
+        </tr>-->
+
+        <tr>
+            <th width="30%"><span class="rojo">*</span>Glosa:</th>
+            <td width="70%"><input name="glosa" type=text class="Text_left" id="glosa" size="50" maxlength="250" autocomplete="off"></td>
         </tr>
 
         <tr>

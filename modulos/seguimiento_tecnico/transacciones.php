@@ -36,9 +36,9 @@ if(isset($_POST["idcuenta"])){
     $ingresos = $data[0];
     $egresos = $data[1];
 
-    $res1 = mysqli_query($conexion, "SELECT c.`idcuenta`, c.`descripcion` FROM cuenta c  WHERE c.`idcuenta` = " . $idcuenta );
+    $res1 = mysqli_query($conexion, "SELECT c.idcuenta, c.numero, c.descripcion FROM cuenta c  WHERE c.`idcuenta` = " . $idcuenta );
     $data1 = mysqli_fetch_row($res1);
-    $cuentaDetalle = ' (' . $data1[1] . ')';
+    $cuentaDetalle = ' (' . $data1[1] . ' - ' . $data1[2] . ')';
 
 }
 
@@ -63,11 +63,11 @@ if(isset($_POST["idcuenta"])){
             <select name="idcuenta" class="selectbuscar" id="idcuenta">
                 <option value="0" selected class="title7">Elija una cuenta...</option>
                 <?php
-                $resultadox = mysqli_query($conexion, "select c.idcuenta, c.numero, c.moneda, b.codigo  
+                $resultadox = mysqli_query($conexion, "select c.idcuenta, c.numero, c.moneda, c.descripcion, b.codigo  
                                                            from cuenta c
                                                            join banco b on c.idbanco = b.idbanco");
                 while($datox = mysqli_fetch_array($resultadox)){
-                    echo'<option value="'.$datox['idcuenta'].'">'.$datox['numero']. '-'.$datox['moneda'].' ('.$datox['codigo'].')'.'</option>';
+                    echo'<option value="'.$datox['idcuenta'].'">'.$datox['numero']. ' '.' ('.$datox['descripcion'].')'.'</option>';
                 }
                 ?>
             </select>
@@ -76,8 +76,10 @@ if(isset($_POST["idcuenta"])){
             <?php if($nively == 1){  ?>
                 <!--<input class="btn_dark" onClick="location.href='#'" type="button" value="Nuevo">-->
                 <input class="btn_dark" onClick="location.href='<?=$mst?>nuevo_transaccion.php'" type="button" value="Nuevo">
+                <input class="btn_dark" onClick="location.href='<?=$mst?>nuevo_transferencia.php'" type="button" value="Nueva Transferencia">
             <?php }  ?>
 
+            <br />
             <span class="title7">&nbsp;Ingresos:&nbsp;</span> <?php echo number_format($ingresos, 2, '.', ','); ?>
             <span class="title7">&nbsp;Egresos:&nbsp;</span> <?php echo number_format($egresos, 2, '.', ','); ?>
             <span class="title7">&nbsp;Saldo:&nbsp;</span> <?php echo number_format($ingresos-$egresos, 2, '.', ','); ?>
