@@ -93,10 +93,11 @@ if(isset($_POST["idcuenta"])){
 <tr>
     <th width="5%">N&deg;</th>
     <th width="10%"><div align="center">Fecha</div></th>
-    <th width="40"><div align="center">Glosa</div></th>
-    <th width="15%"><div align="center">Importe</div></th>
+    <th width="45"><div align="center">Glosa</div></th>
+    <!--<th width="15%"><div align="center">Importe</div></th>-->
     <th width="5%"><div align="center">Mov</div></th>
-    <th width="5%"><div align="center">Trans</div></th>
+    <th width="10%"><div align="center">Ingresos</div></th>
+    <th width="10%"><div align="center">Egresos</div></th>
     <th width="20%"><div align="center">Producto</div></th>
 </tr>
 <?php
@@ -106,7 +107,7 @@ if(isset($_POST["idcuenta"])){
 /*$consulta = "SELECT id_st_ticket,ticket,idnodo,estacion,fecha_inicio_rif,hora_inicio_rif,fecha_fin_rif,hora_fin_rif, fecha_not,hora_not, tipo,problema,fecha_not,hora_not,plan_accion,trabajo_realizado,personal,observaciones,idestacion " .
 		    "FROM st_ticket WHERE fecha_inicio_rif='$fecha'";*/
 
-$consulta = "select t.idtransaccion, t.tipo, date_format(t.fecha,'%d/%m/%Y') as fecha, t.importe, t.notrans, t.glosa, tr.producto, p.declaracion_proyecto 
+$consulta = "select t.idtransaccion, t.tipo, date_format(t.fecha,'%d/%m/%Y') as fecha, t.importe, if(t.tipo= 'I', t.importe, 0) as ingreso, if(t.tipo= 'E', t.importe, 0) as egreso, t.notrans, t.glosa, tr.producto, p.declaracion_proyecto 
              from transaccion t 
              left join st_trabajos tr on t.id_item = tr.id_item 
              left join st_proyecto p  ON tr.id_st_proyecto = p.id_st_proyecto
@@ -126,6 +127,8 @@ if($filas!=0){
         $id      = $dato['idtransaccion'];
         $fecha   = $dato['fecha'];
         $importe = $dato['importe'];
+        $ingreso = $dato['ingreso'];
+        $egreso = $dato['egreso'];
         $notrans = $dato['notrans'];
         $glosa   = $dato['glosa'];
         $tipo    = $dato['tipo'];
@@ -147,20 +150,22 @@ if($filas!=0){
             <td class="marco" align="center"><?=$i;?></td>
             <td class="marco" align="center"><?=$fecha;?></td>
             <td class="marco"><?=$glosa;?></td>
-            <td class="marco" align="right"><?=$importe?></td>
+            <!--<td class="marco" align="right"><?/*=$importe*/?></td>-->
             <td class="marco" align="center"><?=$tipo?></td>
-            <td class="marco" align="center"><?=$notrans;?></td>
+            <td class="marco" align="center"><?=$ingreso;?></td>
+            <td class="marco" align="center"><?=$egreso;?></td>
             <td class="marco" align="center"><?=$proyecto;?></td>
         </tr>
     <?php } ?>
 
-        <tr>
+        <!--<tr>
             <td class="marco" align="right" colspan="3">Saldo:</td>
-            <td class="marco" align="right"><?=number_format($saldo, 2, '.', ',')?></td>
+            <td class="marco" align="right"><?/*=number_format($saldo, 2, '.', ',')*/?></td>
             <td class="marco" align="center"</td>
             <td class="marco" align="center"</td>
             <td class="marco" align="center"</td>
-        </tr>
+            <td class="marco" align="center"</td>
+        </tr>-->
 
 <?php } ?>
 
